@@ -6,38 +6,5 @@ The participants might like to choose challenges that are similar to current use
 
 The instructor will be stepping through some of the key challenges, and can assist each participant where required.
 
-# Setup
 
-### Workshop Tenant Setup
 
-Your assigned Okta tenant has been pre-configured with the following:
-An Okta Administrator account - You instructor will provide the username and password.
-
-#### Pre-Configured Test Accounts
--   bart.simpson#@mailinator.com
--   dean.simpson#@mailinator.com
--   homer.simpson#@mailinator.com
--   barney.gumble#@mailinator.com
--   chief.wiggum#@mailinator.com
-
-**Note:**  The # will be the integer representing your individual Okta tenant.
-
-#### Pre-Configured Groups
--   Group 1
--   Group 2
--   Group 3
--   Staff
--   O365Guest
--   SampleAppOne
--   SampleAppTwo
-
-#### Pre-configured Workflow Connectors
--   Slack Connector
--   Okta Connector
--   Gmail Connector
--   Generic API Connector
--   Office 365 Admin Connector
-
-#### Pre-Configured Applications
--   Sample App One
--   Sample App Two
