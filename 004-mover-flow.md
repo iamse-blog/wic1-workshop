@@ -13,7 +13,7 @@ In the mover flow portion of this use case, we are going to use workflows to aut
 
 We are going to start by creating a workflow table to record a user profile update. Within your workflow folder, select the Tables tab at the top of the page.
 
-![](https://media.graphassets.com/SOCbZTijREuF4N2YohH2 "Snip20230703_4.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image1.png?raw=true")
 
 Click the "New Table" button and create a table. Give it a meaningful name like  _**User Profile Update**_  and add the following text columns:
 
@@ -24,33 +24,33 @@ Click the "New Table" button and create a table. Give it a meaningful name like 
 
 Next, select the "Flows" tab at the top of the page and create a new flow. Give the new flow a meaningful name like  _**Mover Flow**_  and ensure  _**Save all data that passes through the Flow**_  has been ticked. Then click the "Add event" button on the left and select your Okta connector.
 
-![](https://media.graphassets.com/hPyyLRxQJ8oZLJcM0jkQ "Snip20230711_63.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image2.png?raw=true")
 
-![](https://media.graphassets.com/zZaArsZCShKn7P7CwbfC "Snip20230711_64.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image3.png?raw=true")
 
 Then within the Okta connector, choose the event titled  _**User Okta Profile Updated**_. Next we would like to populate the workflow table that you just created. To the right of the Okta connector card, click on the "Function" button and the function popup will open. Then scroll down and select "Tables" on the left. Then within the tables function, click "Create Row".
 
-![](https://media.graphassets.com/oscioGWyQc6zJnNJG9Zd "Snip20230703_9.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image4.png?raw=true")
 
 Then click "Choose Table" and then browse and select the table you have previously created. Note that you will need to select the parent folder of you flows first. Then click "Save". By default all the columns will be available for input.
 
 Now drag the "Changed Attributes" value from the Okta event to the "userProfileChanged" column in your table. Then drag the Okta User "ID" to the "userId" column in your table. The result should match the following:
 
-![](https://media.graphassets.com/Uns3WrLQ8Ctwsnwz2erb "Snip20230703_11.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image5.png?raw=true")
 
 Now save the flow and turn the flow ON by using the toggle switch at the top of the flow.
 
 At this point, we should test the flow to ensure it runs as expected and populates the table with a users attribute changes. Go to the Administration console and go to  **Directory > People**. Then select one of your test users. Go to the users profile tab and click Edit. Then update any attribute on the users profile. For example, update the users "Title" to a specific value. Then click save at the bottom of the page.
 
-![](https://media.graphassets.com/JrYTLjT9T56aouYH4p0f "Snip20230703_13.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image6.png?raw=true")
 
 Now go back to the workflow console and open your workflow table. It should contain a record indicating the user Id and attribute name of the modified attribute.
 
-![](https://media.graphassets.com/ZhD81IFyTV29LByz1P5E "Snip20230703_15.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image7.png?raw=true")
 
 If your table has not updated, open your flow and select "Flow History" at the top left. This should help indicate what went wrong.
 
-## Step 3 - Add Template
+### Step 3 - Add Template
 
 Okta Workflows comes with “Templates” - you can see these as accelerators for your flows or tutorials of how cards are used in combinations to accomplish different scenarios. Let us use one popular template of managing group memberships based on user profile attributes. In our example, we will use the "Title" attribute - so if a person goes from  _**Engineer**_  to  _**VP**_  to  _**Engineer**_  again, his group memberships are in line with his job function. In the customer identity case this could be a “Gold” loyalty level or a “Silver loyalty level” user profile attribute that changes the user’s group membership.
 
@@ -60,7 +60,7 @@ To add the required template to your workflow instance, follow the steps below:
 3.  Then select the template titled "Manage Okta Group Membership Based on Profile Attributes".
 4.  On the right of the template, click "Add template". Add the template to your workflow instance. This will result in the creation of a new folder with four flows and one table1.
 
-![](https://media.graphassets.com/eVgW2JYDRNutTaIZL4Re "Snip20230704_17.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image8.png?raw=true")
 
 We have to set the connections to Okta in the “[1.0] Fix Groups” and “[1.2] Group Addition or Removal” flows. Click on “[1.0] Fix Groups” and open the flow.
 
@@ -68,7 +68,7 @@ Notice this flow is created as a “helper flow” to trigger the workflow. This
 
 For now, Click on “Choose Connection” and set it to your Okta connection.
 
-![](https://media.graphassets.com/Kq84agYtS4WQOAcz6WNC "Snip20230711_58.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image9.png?raw=true")
 
 Then click "Save". Ensure the check box for  _**Save all data that passes through the Flow**_  has been ticked. Then turn the flow on.
 
@@ -83,17 +83,17 @@ Now this flow uses a workflow table as a lookup table. This is the feature that 
 The table is initially empty but it already has the columns created based on the template. Let us import data from a csv file. (The csv file will be supplied by the instructor)
 
 Click on the "Tables" tab within the installed folder. Then click on the table titled "Group Rules". On the top right, click on "Import" and select the supplied CSV file. Once the import is complete, the table will have six records.
-![](https://media.graphassets.com/n5gUW1wLRZ2xLg4jp78V "Snip20230704_21.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image10.png?raw=true")
 
 We should now test the installed Manage Okta Group Membership flows before we move to the next step.
 
 Before we do this, we need to set up a test user with the correct data. Open the Administration console and go to  **Directory > People**. Open a test user, click on the "Profile" tab and ensure they have the value of "Engineer" set for the "Title" attribute:
 
-![](https://media.graphassets.com/JrYTLjT9T56aouYH4p0f "Snip20230703_13.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image11.png?raw=true")
 
 Then click on the Groups tab and ensure they are only a member of the Everyone group.
 
-![](https://media.graphassets.com/h0GYoHRdi5GhrNDLjuw1 "Snip20230711_62.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image12.png?raw=true")
 
 The Manage Okta Group Membership flows will use the table to assign the user to the respective group. Based on a value of Engineer in the users Title, the user will be assigned to Group 3.
 
@@ -103,17 +103,17 @@ Next, open the main flow titled "[1.0] Fix Groups".
 
 Then click the "Test" button at the top of the flow to run the flow in the debug window. The flow will prompt you to enter a test user. Enter the username of the test user that we just configured.
 
-![](https://media.graphassets.com/PjZTGffbSp6a5LMl8RHd "Snip20230705_28.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image13.png?raw=true")
 
 Then click the "Run Test" button. If successful, the user should have been added to Group 3. Here are the last two cards in the debug window:
 
-![](https://media.graphassets.com/IKZIzFl3TzSUCe5CGkZZ "Snip20230705_29.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image14.png?raw=true")
 
 If your user was NOT added to Group 3, then follow the flow in the debug window to see where the process failed. Your instructor can assist you at this point.
 
 To check the user is actually in Group 3, open the Administration console and go to  **Directory > Groups** and open Group 3.
 
-![](https://media.graphassets.com/9uOGUd0FSrG22ARmYBEc "Snip20230705_31.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image15.png?raw=true")
 
 ### Step 4 - Add Filter
 
@@ -123,7 +123,7 @@ In the workflow console, open your mover flow. After the "Create Row" card, clic
 
 We then need to drag the "Changed Attributes" from the incoming event, into the first field on the Find card (look in). In the second field of the Find card (for what), type in "title". Then give the potput a meaningful name like  _**position**_. The card should now match the following:
 
-![](https://media.graphassets.com/1jtG4wcHTuu0CX1Z4Lme "Snip20230711_59.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image16.png?raw=true")
 
 Since the Find card will return a -1 if "title" is not one of the changed attributes, we now need to just exit the flow if -1 is returned.
 
@@ -131,19 +131,19 @@ On the right of your flow, click "Add function" and then select "Branching". The
 
 In other words, this card will only continue the flow if the value is NOT -1, or if the "Text Find" card found an occurance for the attribute "title". The last two cards of the flow should match the following:
 
-![](https://media.graphassets.com/Cw8xL454St226IWVmEi5 "Snip20230711_45.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image17.png?raw=true")
 
 ### Step 5 - Complete Flow
 
 Now we can update our flow to call the template we installed in a previous step. On the right of your flow, click "Add function" and then select "Flow control". On the right, select "Call Flow". Then click the button "Choose Flow" and select the flow titled "[1.0] Fix Groups" from the Manage Okta Group Membership folder. This flow requires just one input, "username". Drag the "Alternate ID" from under the "Okta User" in the starting event, to the input field. The result should match the following:
 
-![](https://media.graphassets.com/ICaEmlxQJKmC2NVQpnfv "Snip20230711_60.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image18.png?raw=true")
 
 We have completed the creation of the flow, so you can turn your flow on.
 
 In the Administration console, go to  _**Directory > People**_, and select a test user. Go to the "Profile" tab and click "Edit". Update the users value for "Title" to either Engineer, Manager or VP. In this instance, I have changed my previous test user from Engineer to VP.
 
-![](https://media.graphassets.com/s8OG08lxS3mydB4lZBVO "Snip20230711_49.png")
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image19.png?raw=true")
 
 Then click "Save".
 
@@ -151,7 +151,7 @@ Go back to your workflow console and within your flow, select "Flow History". Th
 
 If you go back to the Administration console and open up your test user, they should new be a member of all the groups aligned with the respective Title.
 
-![](https://media.graphassets.com/qVZFG43oT9CylNTzbOgc)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image20.png?raw=true")
 You can follow the same process and ensure the workflow removes the user from certain groups if their title changes again.
 
 That complets part B of this challenge, the Mover flow.
