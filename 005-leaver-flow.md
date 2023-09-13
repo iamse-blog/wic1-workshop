@@ -1,6 +1,6 @@
 ﻿
 
-# 1.3 Leaver Flow
+# Leaver Flow
 
 ## Use Case
 
