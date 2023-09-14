@@ -1,8 +1,4 @@
-﻿
-
-# Joiner Flow
-
-## Use Case
+﻿## Use Case Overview
 
 A new user joins your organization and we would like to provide a more personalised welcome message, plus convey some essential information like the users Employee Number. To do this we are going to use Okta Workflows to send a welcome message to a Slack Channel. Additionally we need to read the user’s profile and retrieve their Employee Number and then format and send a personalised email to the respective user, notifying them of their number.
 

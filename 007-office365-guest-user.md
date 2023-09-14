@@ -1,6 +1,4 @@
-﻿# Office 365 Guest User
-
-## Use Case
+﻿## Use Case Overview
 
 One of the many automation use cases that Okta brings to the Microsoft ecosystem is its capability to manage the lifecycle of identities. In this challenge, you will be guided on how to provision Office 365 Guest accounts automatically when a user gets onboarded, leveraging Okta Workflows and the Out of the Box Office 365 Admin Connector. Guest accounts are often used when a fully licensed Office account is not required, like when the user just needs to access a Sharepoint site. So this challenge will also assign the Guest users enough permission to access a Sharepoint site.
 

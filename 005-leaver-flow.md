@@ -1,8 +1,4 @@
-﻿
-
-# Leaver Flow
-
-## Use Case
+﻿## Use Case Overview
 
 The last part of this use case is the Leaver flow. In other words, we need to deprovision access or notify an external system, when a user leaves the organisation. We are going to simulate the notification of an external system by calling a web service endpoint when a user is deactivated.
 
