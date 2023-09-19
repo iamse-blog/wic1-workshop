@@ -8,7 +8,7 @@ Okta Identity Governance works in conjunction with Okta Lifecycle Management and
 ## What to expect
 - Build, Test and Run a Joiner workflow to send notifications via Slack or Teams and Email when employees join your organisation  
 - Understand how joiner, mover and leaver processes can be automated using Okta Workflows  
-- Learn how Okta Workflows can be used for detecting unusual activities like multiple login attempts or unusual login locations, triggering automatic responses.
+- Learn how Okta Workflows can be used to trigger automatic responses when employees report unrecognized activity on their user account.
 - Use Okta Identity Governance to build an approval workflow, see access certification in action and run some attestation reports
 
 

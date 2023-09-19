@@ -67,9 +67,33 @@ Next, click the **Create** button. At this point, the configured settings will b
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image4.png?raw=true")
 
 ### Slack Connector
-Click **New Connection** and select the
+Click **New Connection** and select the Slack Connector.
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image5.png?raw=true")
+Next we need to provide a meaningful name. As we will only be using one Slack connector, its OK to leave the default as "Slack".
+Then click **Create**.
+You will then be prompted to enter a Slack workspace URL your-workspace.slack.com
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image6.png?raw=true")
 
+**Note:** Your instructor will provide the Slack workspace URL, username and password if you are completing this lab in a workshop environment.
 
+Then click **Continue**.
+On the next screen, we need to select the link at the bottom that allows us to sign in with a password instead of receiving an email.
 
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image7.png?raw=true")
+
+Then on the next screen, enter the email address and password.
+
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image8.png?raw=true")
+
+If the credentials are correct, you will then be prompted to allow Okta workflows to access the Slack workspace.
+
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image9.png?raw=true")
+
+Okta workflows will now complete the Slack Connector configuration. If successful, the Slack Connector will have a green tick next to it, indicating that it is active.
+
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image10.png?raw=true")
+
+### API Connector
+Click **New Connection** and select the Slack Connector.
 
 
