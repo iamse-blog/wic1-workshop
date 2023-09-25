@@ -129,3 +129,5 @@ Okta workflows will now complete the Gmail Connector configuration. If successfu
 
 ### Office 365 Admin Connector Setup
 Click **New Connection** and select the Office 365 Admin Connector.
+
+setup goes here...
