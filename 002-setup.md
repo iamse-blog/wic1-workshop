@@ -36,7 +36,7 @@ The following connectors are required:
 2. **Slack Connector** - The labs will involve sending messages to Slack channels.
 3. **API Connector** - This is a generic Web Service connector used to connect to any endpoint.
 4. **Mail Connector** - Either Office 365 or GMail
-5. **Office 365 Admin Connector** - This is required when completing the Office 365 Guest User lab.
+5. **Azure Active Directory Connector** - This is required when completing the Office 365 Guest User lab.
 
 **Lets set up those connectors now.**
 
@@ -127,7 +127,17 @@ Okta workflows will now complete the Gmail Connector configuration. If successfu
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image16.png?raw=true")
 
-### Office 365 Admin Connector Setup
-Click **New Connection** and select the Office 365 Admin Connector.
+### Azure Active Directory Connector Setup
+This connector is required for the Office 365 Guest User lab.
+Click **New Connection** and select the Azure Active Directory Connector.
 
-setup goes here...
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image17.png?raw=true")
+
+Next we need to provide a meaningful name. As we will only be using one Azure Active Directory Connector, its OK to leave the default as "Azure Active Directory".
+Then click **Create**.
+
+Next Microsoft will prompt you for some credentials. If this lab is being conducted in a workshop environment, then the instructor will provide you with some credentials to an Azure AD instance.
+
+Okta workflows will now complete the Azure Active Directory Connector configuration. If successful, the Azure Active Directory Connector will have a green tick next to it, indicating that it is active.
+
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/002/image18.png?raw=true")
