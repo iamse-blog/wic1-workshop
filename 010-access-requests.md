@@ -50,7 +50,7 @@ In the admin console, go to **Identity Governance** and click on **Access Reques
 
 ### Configure an Access Request Team.
 
-Teams are an Access Requests grouping mechanism. Workflows must be assigned to a Team, and Teams can be used to scope who can run a workflow or participate in it.
+Teams are an Access Requests grouping mechanism. Use teams to organize users into logical groups within Access Requests. An Access Request Workflow must be assigned to a Team, and Teams can be used to scope who can run a workflow or participate in it. 
 
 **Note:** An Access Request Workflow is specific to Identity Governance and is not an Okta Workflow.
 
@@ -70,13 +70,13 @@ Make sure the IT team is selected and all the actions are allowed. Click on the 
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/010/image5.png?raw=true)
 
-Next let's make sure the applications and groups are synced across to the Access Requests console. Click on the **Resources** tab to the top and select **Applications**. Make sure Sample App Two is present and click on **Okta Groups** and make sure the **Staff** group is present. If you made any changes, click on **Update now**.
+Next let's make sure the applications and groups are synced across to the Access Requests console. Resources are synced directly from your integrations. Currently, Access Requests can sync resources from Okta, Jira, and Service Now.
+Click on the **Resources** tab to the top and select **Applications**. Make sure Sample App Two is present and click on **Okta Groups** and make sure the **Staff** group is present. If you made any changes, click on **Update now**.
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/010/image6.png?raw=true)
 
 Let's make sure the IT team has full access to the applications and groups. 
 Click on **Applications** on the left and then click on **Manage Access** button and make sure the IT team is enabled if not move the radio button to enable and click **Save**.
-
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/010/image7.png?raw=true)
  
@@ -84,14 +84,19 @@ Next, click on **Okta Groups** on the left and then click on **Manage Access** b
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/010/image8.png?raw=true)
  
-Now that the apps and groups are present, let's use them in our flow. Click on the **Configuration lists** tab at the top and the click on **Create new list**. Give the list a meaningful name like App Sublist. Then under **Teams** select the IT team, a **List type** of Resource list and a **Resource type** of Applications. 
+Now that the apps and groups are present, let's use them in our flow. Configuration lists are customized collections of resources or admin-defined values. They determine which applications or groups that a team can use in a Request Type. Use them in Request Types to specify options available to your end users or control how automated actions work within a Request Type.
+
+Click on the **Configuration lists** tab at the top and the click on **Create new list**. Give the list a meaningful name like App Sublist. Then under **Teams** select the IT team, a **List type** of Resource list and a **Resource type** of Applications. 
 Then click the **Add item** button on the bottom left, and select Sample App Two. Finally, click the **Create list** button on the bottom right.
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/010/image9.png?raw=true)
 
-### Create and Access Request Flow
+### Create and Access Request Type
 
-On the **Access Request** UI on the left menu, select Access Requests and click on **Create request type**. Provide a name for the Request Type and choose an icon of your choice. Under **Team** select the **IT** team. Under Audience, use the *Select an Okta group...* menu option to select the **Staff** group. Then click **Continue**.
+Request Types are collections of tasks used to define how to process a request. Each Request Type is made of one or more tasks that are routed to approvers for review.  Access Requests  teams create and own Request Types.
+
+On the **Access Request** UI on the left menu, select Access Requests and click on **Create request type**. Provide a name for the Request Type and choose an icon of your choice. Under **Team** select the **IT** team. 
+Audiences control which users can submit a request with a specific Request Type. Under Audience, use the *Select an Okta group...* menu option to select the **Staff** group. Then click **Continue**.
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/010/image10.png?raw=true)
 
@@ -105,7 +110,9 @@ You can now choose to add another Question by clicking on the **Question** butto
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/010/image12.png?raw=true)
 
-Then add an Approval Task by clicking on the **Task** button at the bottom. Give the task a meaningful name like Manager Approval. Leave the default as a required task. Set the task **Type** as Approval task. Set the **Assigned to** to the Requester's manager. Leave the **Due date** as the default of No due date.
+Then add an Approval Task by clicking on the **Task** button at the bottom. Give the task a meaningful name like Manager Approval. Leave the default as a required task. Set the task **Type** as Approval task. 
+
+Assignees manage a request after it’s submitted and are always members of the Access Requests Team that owns the Request Type. Set the **Assigned to** to the Requester's manager. Leave the **Due date** as the default of No due date.
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/010/image13.png?raw=true)
 
