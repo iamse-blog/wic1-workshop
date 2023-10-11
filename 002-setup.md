@@ -28,8 +28,14 @@ The following test applications have been created in your Okta tenant:
 -   Sample App One
 -   Sample App Two
 
+### Sample Workflow Table Data
+The Mover Flow challenge uses the following CSV data file:
+[GroupRules.csv](https://github.com/iamse-blog/workflows-templates/blob/main/workflow-workshop/groupRules%20-%20groupRules.csv)
+
 ## Okta Workflows Setup
 Before we commence the challenges in this lab, we need to configure a number of workflow connectors. These will be used throughout the workshop. Where the connectors need specific account information, the workshop instructor will provide the relevant endpoints and credentials. 
+
+Credential details will be provided via this page: [Connector Credential Details](https://github.com/iamse-blog/workflows-templates/blob/main/workflow-workshop/readme.md)
 
 The following connectors are required:
 1. **Okta Connector** - This will connect to the underlying Okta tenant.
