@@ -1,4 +1,5 @@
-﻿## Use Case Overview
+﻿# Anything as a Source
+## Use Case Overview
 Okta customers, particularly in the Workforce Identity space, are looking to model and, where possible, automate the IT processes associated with individuals joining, moving within, or leaving their organization. These processes are driven by changes to data in an organization’s source of truth for identity information. The driving forces behind automation include improving IT efficiency, security and end user productivity while also reducing costs.
 
 Okta provides Out of the Box integrations with directories (AD, LDAP and CSV) and a limited number of HR systems. So if your source of truth falls within these boundaries, on-boarding users into Okta is simple and easy with Okta’s Lifecycle Management solution. But what if your HR system is not pre-integrated into Okta?
