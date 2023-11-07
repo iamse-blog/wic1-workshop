@@ -42,6 +42,32 @@ To complete this challenge, your workflow instance will require the following co
 1. Okta Connector
 2. API Connector - Auth Type of None
 
+## Sample Flow Overview
+Before we get into the solution, lets take a look at the supplied sample flows. The Workflows Okta Connector now has some additional operations to support Anything as a Source (XaaS). These XaaS operations need to be called in a particular order. Lets walk through the main flow and have a look at what each section does.
+
+### Clear Previous Sessions
+The first thing the main flow does is clear any previous user import sessions. This is because only one session can run at one time. If a previous session did not complete successfully, then we need to remove that session before we create a new one.
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image13.png?raw=true)
+This is done by using the Okta connector to List Import Sessions and then calling a help flow to remove any session found.
+
+### Retrieve External Users
+The next thing the flow does is to call an external endpoint and retrieve all the users. In this case, the endpoint sources all the users from an external database table. Once retrieved, we then need to parse the response into a list of JSON objects.
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image14.png?raw=true)
+ 
+ ### Map User Data
+Next we need to take the data retrieved from the call to the endpoint and convert it to the expected format so it can be mapped to the Okta profile. This is done in three steps:
+1. Filter out the user status we are not interested in. For example, if we are processing user create/update, then we do not want any de-active users.
+2. Map the date to the correct format
+3. Clean up the mapped data to remove any unwanted elements.
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image15.png?raw=true)
+
+### Upload Data
+In the final step, we use the new XaaS operations to upload the data into Okta. This is done by using the following operations in this order:
+1. Create an Import Session
+2. Bulk User Import
+3. Trigger Import Session
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image16.png?raw=true)
+
 **Let’s get started!**
 
 ## Solution
@@ -123,15 +149,14 @@ The contents of the downloaded zip file is as follows:
 Open your workflow console and create a new folder and give it a meaningful name. In my workflow instance, I called my folder  **Anything-as-a-Source**. Click the three dots at the end of the folder name and select  **Import**. Import the file titled anythingAsASource.folder
 
 Once the import is complete, the folder will contain the following flows:
-
-1.  **[main] Populate DynamoDB Table** – This flow is used to synchronize the sample users supplied in the workflow table, with the AWS DynamoDB table. (Not used as the external database table has already been populated and made available)
-2.  **[util] Upload Sample User** – This flow is called by [main] Populate DynamoDB Table and uploads an individual user to the AWS DynamoDB table. (Not used as the external database table has already been populated and made available)
-3.  **[main] Scheduled Import Active Users** – This flow orchestrates a bulk upload of active users from the DynamoDB table into Okta.
-4.  **[main] Scheduled Import Deactive Users** – This flow orchestrates a bulk upload of de-active users from the DynamoDB table into Okta.
-5.  **[util] Profile Map to Okta Format** – This flow takes the user data from the DynamoDB user record and formats it into the expected format for the XaaS upload API.
-6.  **[util] Delete Target Import Session** – This flow is used to clean up any old import sessions.
-7.  **[util] Filter Active Users** – This flow will return a value of True if the user is in a active state.
-8.  **[util] Filter De-active Users** – This flow will return a value of True if the user is in a de-active state.
+1.  **[main] Scheduled Import Active Users** – This flow orchestrates a bulk upload of active users from the external database table into Okta.
+2. **[main] Scheduled Import Deactive Users** – This flow orchestrates a bulk upload of de-active users from the DynamoDB table into Okta.
+3.  **[util] Profile Map to Okta Format** – This flow takes the user data from the external database table user record and formats it into the expected format for the XaaS upload API.
+4.  **[util] Delete Target Import Session** – This flow is used to clean up any old import sessions.
+5.  **[util] Filter Active Users** – This flow will return a value of True if the user is in a active state.
+6.  **[util] Filter De-active Users** – This flow will return a value of True if the user is in a de-active state.
+7.  **[main] Populate DynamoDB Table** – This flow is used to synchronize the sample users supplied in the workflow table, with the external database table. (Not used as the external database table has already been populated and made available)
+8.  **[util] Upload Sample User** – This flow is called by [main] Populate DynamoDB Table and uploads an individual user to the external database table. (Not used as the external database table has already been populated and made available)
 
 #### Update Flow Configuration
 
