@@ -1,4 +1,5 @@
 ﻿# Anything as a Source
+
 ## Use Case Overview
 Okta customers, particularly in the Workforce Identity space, are looking to model and, where possible, automate the IT processes associated with individuals joining, moving within, or leaving their organization. These processes are driven by changes to data in an organization’s source of truth for identity information. The driving forces behind automation include improving IT efficiency, security and end user productivity while also reducing costs.
 
@@ -18,7 +19,7 @@ Introducing  **Anything-as-a-Source (XaaS)**. This new feature provides the foll
 
 Anything-as-a-Source allows you to integrate any source of truth with Okta, and realize the benefits of HR-driven provisioning from any source of truth. XaaS gives customers the flexibility to define the terms of synchronization between Okta and the source of truth.
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image1.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image1.png?raw=true)
 
 **Key Benefits**
 
@@ -47,26 +48,26 @@ Before we get into the solution, lets take a look at the supplied sample flows. 
 
 ### Clear Previous Sessions
 The first thing the main flow does is clear any previous user import sessions. This is because only one session can run at one time. If a previous session did not complete successfully, then we need to remove that session before we create a new one.
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image13.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image13.png?raw=true)
 This is done by using the Okta connector to List Import Sessions and then calling a help flow to remove any session found.
 
 ### Retrieve External Users
 The next thing the flow does is to call an external endpoint and retrieve all the users. In this case, the endpoint sources all the users from an external database table. Once retrieved, we then need to parse the response into a list of JSON objects.
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image14.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image14.png?raw=true)
  
  ### Map User Data
 Next we need to take the data retrieved from the call to the endpoint and convert it to the expected format so it can be mapped to the Okta profile. This is done in three steps:
 1. Filter out the user status we are not interested in. For example, if we are processing user create/update, then we do not want any de-active users.
 2. Map the date to the correct format
 3. Clean up the mapped data to remove any unwanted elements.
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image15.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image15.png?raw=true)
 
 ### Upload Data
 In the final step, we use the new XaaS operations to upload the data into Okta. This is done by using the following operations in this order:
 1. Create an Import Session
 2. Bulk User Import
 3. Trigger Import Session
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image16.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image16.png?raw=true)
 
 **Let’s get started!**
 
@@ -82,7 +83,7 @@ In your Okta Administration console, go to  **Applications > Applications**  and
 
 Add the following application to your Okta tenant:
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image2.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image2.png?raw=true)
 
 #### Configure Application
 
@@ -90,7 +91,7 @@ Once you have added the app to your Okta tenant, give the app a meaningful name.
 
 Next, go to the  **Provisioning tab**  and select the  **Integration**  option on the left menu. Click  **Edit**  and check the box for  _**Enable API Integration**_. In this example, we will not be importing Groups, so you can un-check the box for  **Import Groups**. Then click  **Save**. See the screenshot below:
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image3.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image3.png?raw=true)
 
 Next, under the  **Provisioning tab**, select the  **To Okta**  option on the left menu. In the section titled  **User Creation & Matching**, click  **Edit**  and check the boxes for the following settings:
 
@@ -100,11 +101,11 @@ Next, under the  **Provisioning tab**, select the  **To Okta**  option on the le
 
 Then click  **Save**. If these settings are not enabled, the administrator will have to manually confirm and activate the imports. See the screenshot below:
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image4.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image4.png?raw=true)
 
 In the section titled Profile & Lifecycle Sourcing, click Edit and check the box for Allow Custom Identity Source to source Okta users. You can also optionally check the boxes for Reactivate suspended Okta users and Reactivate deactivated Okta users. Then click Save. See the screenshot below:
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image5.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image5.png?raw=true)
 
 #### Update Identity Source Profile
 The default profile for the Custom Identity Source Application contains the following attributes; Username, First Name, Last Name, Email, Second Email and Mobile Phone. If you are using the AWS DynamoDB example, then we need to add some additional custom attributes to the profile.
@@ -125,7 +126,7 @@ In your Okta Administration console, go to Directory > Profile Editor and select
 
 Once complete, click the **Mappings** button to bring up the profile mappings from the **Custom Identity Source App** profile to the Okta profile. Ensure all the default and custom attributes are mapped from source to destination. The mapping for the first three attributes is displayed in the screenshot below:
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image6.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image6.png?raw=true)
 
 ### Step 2 – Configure the Sample Workflow
 
@@ -134,7 +135,7 @@ The additional XaaS operations that have been added to the workflow Okta connect
 1.  okta.identitySources.manage
 2.  okta.identitySources.read
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image7.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image7.png?raw=true)
 
 In order for the  **Okta Connector** to be able to access these additional scopes, it needs to be re-authorized. Open your workflow console and select Connections at the top of the page. Within your exiting connections, select the  **Okta connector.**  Click on the reauthorize icon on the right, and enter in your Domain, Client ID and Client Secret from the  **Okta Workflows OAuth** app.
 
@@ -198,7 +199,7 @@ The XaaS workflow cards need to point to your  **Custom Identity Source**  appli
 
 Then under the  **Application**  option, select your  **Custom Identity Source**  application from the drop down menu and then select save. Do the same for flow  **[main] Scheduled Import De-active Users**.
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image8.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image8.png?raw=true)
 
 Once the workflow configuration has been updated, turn each flow **On**. (Ignore the flows titled [main] Populate DynamoDB Table and [util] Upload Sample User, as we will not be using these)
 
@@ -213,17 +214,17 @@ In the Workflow console, open the flow titled **[main] Scheduled Import Active U
 
 Oce the flow has completed, in the Administration console, go to **Reports > Import Monitoring**. You should see a new import session has started. 
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image9.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image9.png?raw=true)
 
 After a few minutes, the import session should complete and indicate that exactly 100 new users have been created in your tenant.
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image10.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image10.png?raw=true)
 
 ### Step 4 – Synchronize User Profile Update
 In this step we are going to synchronize a user profile update. The workshop instructor will update at least one user profile in the external database table and advise you of the changes they have made. Once this has been completed, in the Workflow console, run the flow titled **[main] Scheduled Import Active Users** again. As well as creating users in Okta, this flow will also update users.
 
 Once the import session has completed, the Import Monitoring report should indicate that at least one user profile has been updated, while the remainder of the users have been left unchanged.
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image11.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image11.png?raw=true)
 
 In the Administration console, go to **Directory > People** and search for the respective user that had a profile update. The users profile should now reflect the new values.
 
@@ -232,7 +233,7 @@ In this step we are going to synchronize a user profile status change by deactiv
 
 Once the import session has completed, the Import Monitoring report should indicate that at least one user profile has been removed (Deactivated).
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/011/image12.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/006/image12.png?raw=true)
 
 In the Administration console, go to **Directory > People** and search for the respective user that was deactivated. The users status should now be deactivated.
 

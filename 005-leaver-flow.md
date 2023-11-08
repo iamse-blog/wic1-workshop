@@ -1,4 +1,6 @@
-﻿## Use Case Overview
+﻿# Leaver Flow
+
+## Use Case Overview
 
 The last part of this use case is the Leaver flow. In other words, we need to deprovision access or notify an external system, when a user leaves the organisation. We are going to simulate the notification of an external system by calling a web service endpoint when a user is deactivated.
 
@@ -66,5 +68,5 @@ Ensure the flow is turned on and click the "Test" button at the top to run the f
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/005/image9.png?raw=true")
 
-That is the completion of Part C of this challenge.
+*That is the completion of Part C of this challenge.*
 

@@ -1,4 +1,6 @@
-﻿## Use Case Overview
+﻿# Mover Flow
+
+## Use Case Overview
 
 In the mover flow portion of this use case, we are going to use workflows to automatically change a users group membership, based on a change of value within an attribute on the users profile. The common way to appropriate a certain level of access in Okta is via group membership. Based on a users groups, they will be provisioned access to certain applications and a certain level of access within each application.
 
@@ -152,4 +154,4 @@ If you go back to the Administration console and open up your test user, they sh
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/004/image20.png?raw=true")
 You can follow the same process and ensure the workflow removes the user from certain groups if their title changes again.
 
-That complets part B of this challenge, the Mover flow.
+*That completes part B of this challenge, the Mover flow.*

@@ -26,11 +26,11 @@ In order to test the workflow, we will need some test users that have enrolled i
 In the Administration console, go to **Security > Authenticators** and add some additional authenticators to your Okta tenant. For example, add Google Authenticator and Security Question.
 Once added, your authenticator list should match the following:
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/012/image1.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image1.png?raw=true)
 
 Next, open a private/incognito browser window and log into your Okta tenant with one of your test users. On the Okta landing page, select the top right menu and select **Settings**. Then go through the setup process for at least two factors.
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/012/image2.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image2.png?raw=true)
 Repeat this process for a second test user.
 
 ### Step 2 – Configure the Sample Workflow
@@ -68,7 +68,7 @@ The sample workflow will notify a user via a direct message (yourself). In produ
 
 Open the flow titled [main] Process User MFA Deactivation Event and update the first Object Construct card to use your Slack email address.
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/012/image3.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image3.png?raw=true)
 
 Once the workflow configuration has been updated, turn each flow **On**.
 
@@ -76,14 +76,14 @@ Once the workflow configuration has been updated, turn each flow **On**.
 Now we are ready to test the workflow. Open a private/incognito browser window and log into your Okta tenant with one of your test users. On the Okta landing page, select the top right menu and select **Settings**. 
 Choose one of the factors that were enrolled in Step 1 and click the corresponding Remove button.
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/012/image4.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image4.png?raw=true)
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/012/image5.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image5.png?raw=true)
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/012/image6.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image6.png?raw=true)
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/012/image7.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image7.png?raw=true)
 
-![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/012/image8.png?raw=true)
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image8.png?raw=true)
 
-
+*That completes this challenge.*
