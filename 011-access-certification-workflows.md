@@ -1,6 +1,4 @@
-﻿# Access Certification with Workflows
-
-## Use Case Overview
+﻿## Use Case Overview
 
 This challenge uses Okta Workflows to perform a number of actions if a user’s access is revoked. Rather than removing access via the Identity Governance functionality, there may be instances where additional actions need to be taken. This is where the Okta’s Workflows platform can be used to customize complex identity governance requirements without code.
 

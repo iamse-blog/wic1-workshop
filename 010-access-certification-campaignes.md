@@ -1,6 +1,4 @@
-﻿# Access Certification Campaigns
-
-## Use Case Overview
+﻿## Use Case Overview
 
 In the first part of this challenge, we are going to create a basic Access Certification Campaign. In this campaign, we are going to get the respective users manager to validate if the user should have access to application "Sample App One". As access to this application is provisioned via membership of group "SampleAppOne", we are going to validate access by validating group membership.
 

@@ -1,5 +1,4 @@
-﻿# Setup
-## Okta Tenant
+﻿## Okta Tenant
 
 On enrolling in this lab, an Okta tenant has been auto-generated for you. You should have received an email to activate your account. When you log in for the first time, you will be prompted to set your own password.
 Your tenant has been pre-configured with the following resources:

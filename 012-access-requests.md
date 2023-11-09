@@ -1,6 +1,4 @@
-﻿# Access Requests
-
-## Use Case Overview
+﻿## Use Case Overview
 
 Okta  Access Requests automates the process of requesting access to applications and resources. Expanding on Okta's existing self-service offerings, Access Requests delivers a simplified and frictionless approach that automatically routes user requests to one or more approvers for action.
 

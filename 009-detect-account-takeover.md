@@ -1,5 +1,4 @@
-﻿# Detect Potential Account Takeover
-## Use Case Overview
+﻿## Use Case Overview
 Account takeover is a major security risk that can result in malicious actors gaining access to resources and information by “stealing” a user’s account. This can happen through social engineering, purchasing stolen credentials on the dark web, phishing, or other means. 
 
 Okta Workflows can be used to detect and react to potential account takeover (ATO) attempts by identifying certain risky behavior and taking action, such as notifying a security team or terminating a user’s sessions and even suspending the user account until further investigation can occur. 

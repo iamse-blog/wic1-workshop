@@ -1,6 +1,4 @@
-﻿# Report Suspicious Activity
-
-## Use Case Overview
+﻿## Use Case Overview
 
 Suspicious Activity Reporting provides an end user with the option to report unrecognized activity from an account activity email notification. When end users receive a security email notification, they can send a report by clicking Report Suspicious Activity. The default behaviour is for the Suspicious Activity Report to be sent to the Okta system log. Its then up to the Okta Administrators to run a report on the system log to get a list of all the users that have reported suspicious activity.
 
