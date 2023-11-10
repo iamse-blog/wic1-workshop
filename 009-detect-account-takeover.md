@@ -65,23 +65,35 @@ The following flows have  **Slack Connector**  cards that require updating:
 ***Add Your Slack Email***
 The sample workflow will notify a user via a direct message (yourself). In production, this will likely be a security channel. Also note that the Slack connector can easily be replaced by the Teams Connector.
 
-Open the flow titled [main] Process User MFA Deactivation Event and update the first Object Construct card to use your Slack email address.
+Open the flow titled **[main] Process User MFA Deactivation Event** and update the first Object Construct card to use your Slack email address.
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image3.png?raw=true)
 
 Once the workflow configuration has been updated, turn each flow **On**.
 
 ### Step 3 – Test the Workflow
-Now we are ready to test the workflow. Open a private/incognito browser window and log into your Okta tenant with one of your test users. On the Okta landing page, select the top right menu and select **Settings**. 
-Choose one of the factors that were enrolled in Step 1 and click the corresponding Remove button.
+Now we are ready to test the workflow. Open a private/incognito browser window and log into your Okta tenant with one of your test users that has at least two additional factors enrolled. On the Okta landing page, select the top right menu and select **Settings**. 
+Choose one of the factors that were enrolled in Step 1 and click the corresponding Remove button. In my example, I'm reseting the users Security Question.
+
+Now go back to the workflow console in your other browser, and select the Execution History of flow **[main] Process User MFA Deactivation Event**. There should be an execution visible in the pane on the right. Select the execution and you will be able to see the data passed to each card.
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image4.png?raw=true)
 
+Now select the folder link in the top left of the flow and then select the **Tables** tab. Open the **Flagged MFA Resets** table. There should be a record of the MFA Factor reset, indicating the user and the type of factor.
+
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image5.png?raw=true)
+
+Next we need to repeat the process and reset a second factor. In my example, I'm going to reset Google Authenticator. Once reset, go back to the **Flagged MFA Resets** table in the workflow console and there should be a second record.
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image6.png?raw=true)
 
+Based on the fact that the same user had two factors reset within the specified time period, the workflow will have suspended the account and sent a message to you on Slack.
+
+If you refresh the browser where the test user is logged into Okta, you will see that the user has been logged out. Additionally if you go back to the Administration console for your Okta tenant and under **Directory > People**, search for your test user, you will see the users status is now Suspended.
+
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image7.png?raw=true)
+
+Finally, have a look at Slack and you should have a direct message sent to you by Workflows which details the event and the action taken by Workflows.
 
 ![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image8.png?raw=true)
 
