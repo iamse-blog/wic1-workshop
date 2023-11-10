@@ -9,6 +9,8 @@ In this challenge, we are going to use Okta Workflows to detect account takeover
 2. The user’s sessions are terminated
 3. The user account is suspended
 
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/009/image9.png?raw=true)
+
 ## Resources
 This challenge uses a sample workflow that can be downloaded from here: [Sample Workflow](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/iamse-blog/workflows-templates/tree/main/detect-potential-ato)
 
