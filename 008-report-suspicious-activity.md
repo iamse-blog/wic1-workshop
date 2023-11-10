@@ -10,6 +10,8 @@ Users would receive a similar email of any other factor was reset. Note that the
 
 Okta workflows provides the ability to act on the report immediately and automatically. Workflows also provides a template for this use case. This challenge will be enabling the template in your Okta Workflows instance.
 
+![](https://github.com/iamse-blog/wic1-workshop/blob/main/images/008/image16.png?raw=true")
+
 **Let’s get started!**
 
 ## Solution
